@@ -1,0 +1,23 @@
+TracingInterceptor#preHandle
+	VisitingLoggerInterceptor#preHandle
+		TimingForInterceptor#preHandle          START
+			TimingForTest1#preHandle
+				TimingForTest2#preHandle
+					TimingForController#preHandle  STOP START
+						UserController
+					TimingForController#postHandle STOP START
+				TimingForTest2#postHandle
+			TimingForTest1#postHandle
+		TimingForInterceptor#postHandle STOP
+	VisitingLoggerInterceptor#postHandle
+TracingInterceptor#postHandle
+
+
+
+TimingForController#afterCompletion START
+TimingForTest2#afterCompletion
+TimingForTest1#afterCompletion
+TimingForInterceptor#afterCompletion STOP SET 计算
+VisitingLoggerInterceptor#afterCompletion
+TracingInterceptor#afterCompletion
+
